@@ -1,0 +1,124 @@
+{
+  "info": {
+    "name": "X.com Fact Checker API",
+    "description": "API for fact-checking posts from X.com using Gemini AI with deep search",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "fact-checker-api-001",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        },
+        "description": "Check if the API is running"
+      },
+      "response": []
+    },
+    {
+      "name": "Fact Check - Battery Claim (Example)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"post_content\": \"A new study from the University of Techford shows that charging your phone overnight definitively reduces battery lifespan by 50% in just six months.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/fact-check",
+          "host": ["{{base_url}}"],
+          "path": ["fact-check"]
+        },
+        "description": "Fact-check a claim about phone battery charging"
+      },
+      "response": []
+    },
+    {
+      "name": "Fact Check - Water Consumption Claim",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"post_content\": \"Breaking: Scientists confirm that drinking 8 glasses of water per day is essential for optimal health and prevents dehydration-related deaths.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/fact-check",
+          "host": ["{{base_url}}"],
+          "path": ["fact-check"]
+        },
+        "description": "Fact-check a claim about daily water intake requirements"
+      },
+      "response": []
+    },
+    {
+      "name": "Fact Check - Climate Change Claim",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"post_content\": \"NASA reports that global temperatures have increased by 1.1°C since the pre-industrial era, primarily due to human activities.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/fact-check",
+          "host": ["{{base_url}}"],
+          "path": ["fact-check"]
+        },
+        "description": "Fact-check a claim about climate change and global temperature rise"
+      },
+      "response": []
+    },
+    {
+      "name": "Fact Check - Custom Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"post_content\": \"Your custom post content goes here\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/fact-check",
+          "host": ["{{base_url}}"],
+          "path": ["fact-check"]
+        },
+        "description": "Template for fact-checking custom posts"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}

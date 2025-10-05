@@ -1,0 +1,6 @@
+protobuf
+fastapi
+uvicorn
+google-genai
+pydantic
+python-dotenv

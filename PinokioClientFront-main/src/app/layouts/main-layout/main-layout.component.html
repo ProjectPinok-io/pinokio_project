@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="layout-container">
+  <aside class="sidebar" [class.collapsed]="isCollapsed">
+    <div class="sidebar-content">
+      <button class="collapse-toggle" (click)="toggleSidebar()">
+        <i class="pi" [ngClass]="isCollapsed ? 'pi-angle-right' : 'pi-angle-left'"></i>
+      </button>
+
+      <nav class="nav-menu">
+        @for (item of menuItems; track item.label) {
+          <a class="nav-item">
+            <i [class]="item.icon"></i>
+            <span>{{ item.label }}</span>
+          </a>
+        }
+      </nav>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

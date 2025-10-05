@@ -1,0 +1,13 @@
+{
+  "name": "Test Author",
+  "username": "testauthor",
+  "content": "This is a test post for evaluation. It contains no obvious fake news keywords.",
+  "publishedAt": "2025-10-04 11:00:00",
+  "isVerified": false,
+  "views": 100,
+  "comments": 5,
+  "reposts": 2,
+  "likes": 10,
+  "bookmarks": 1,
+  "relatedProfiles": ["Another User"]
+}

@@ -1,0 +1,62 @@
+{
+  "model": "gemini-2.5-pro",
+  "contents": "{prompt_will_be_inserted_here}",
+  "config": {
+    "tools": [
+      {
+        "google_search": {}
+      }
+    ],
+    "response_mime_type": "application/json",
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "misinformation_probability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Prawdopodobieństwo (0-100%) że post zawiera dezinformację lub jest generowany przez bota"
+        },
+        "red_flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string",
+                "description": "Kategoria czerwonej flagi (np. 'Analiza profilu', 'Treść postu', 'Jakość językowa', 'Weryfikacja źródeł')"
+              },
+              "indicator": {
+                "type": "string",
+                "description": "Konkretny zidentyfikowany wskaźnik lub wzorzec"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["low", "medium", "high"],
+                "description": "Waga czerwonej flagi"
+              },
+              "details": {
+                "type": "string",
+                "description": "Szczegółowe wyjaśnienie dlaczego to jest czerwona flaga"
+              }
+            },
+            "required": ["category", "indicator", "severity", "details"]
+          },
+          "description": "Lista zidentyfikowanych czerwonych flag we wszystkich kategoriach analizy"
+        },
+        "analysis": {
+          "type": "string",
+          "description": "Ogólne podsumowanie analizy podkreślające kluczowe obawy bez wydawania ostatecznych werdyktów prawda/fałsz"
+        },
+        "evidence_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Zewnętrzne źródła użyte do weryfikacji twierdzeń, w formacie: [Źródło] - [Znalezisko]"
+        }
+      },
+      "required": ["misinformation_probability", "red_flags", "analysis", "evidence_sources"]
+    }
+  }
+}

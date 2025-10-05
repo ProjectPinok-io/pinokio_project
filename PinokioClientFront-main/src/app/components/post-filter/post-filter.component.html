@@ -1,0 +1,51 @@
+<div class="post-filter">
+  <div class="sort-section">
+    <p-select
+      [options]="sortOptions()"
+      [formControl]="sortControl"
+      optionLabel="label"
+      class="sort-dropdown"
+    >
+      <ng-template let-option pTemplate="item">
+        <div class="sort-option">
+          <i [class]="option.icon"></i>
+          <span>{{ option.label }}</span>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="selectedItem" let-option>
+        @if (option) {
+          <div class="sort-selected">
+            <i [class]="option.icon"></i>
+            <span>{{ option.label }}</span>
+          </div>
+        }
+      </ng-template>
+    </p-select>
+  </div>
+  <div class="filter-actions">
+    <div class="filter-chips">
+      <p-chip
+        label="Tylko zweryfikowani"
+        [class]="showVerifiedOnly() ? 'chip-active' : 'chip-inactive'"
+        (click)="toggleVerifiedFilter()"
+      ></p-chip>
+
+      <p-chip
+        label="Z obrazami"
+        [class]="contentTypes().includes('images') ? 'chip-active' : 'chip-inactive'"
+        (click)="toggleContentType('images')"
+      ></p-chip>
+    </div>
+
+    <button
+      pButton
+      type="button"
+      icon="pi pi-times"
+      (click)="clearAllFilters()"
+      [disabled]="!showVerifiedOnly() || !contentTypes().includes('images')"
+    >
+      Wyczyść wszystkie
+    </button>
+  </div>
+</div>

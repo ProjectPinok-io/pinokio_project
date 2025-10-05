@@ -1,0 +1,23 @@
+<div class="audit-container">
+  <div class="audit-header">
+    <h4 class="audit-title">Wynik audytu i uzasadnienie</h4>
+    <p-tag [value]="auditStatus()" [severity]="getSeverity()" [rounded]="true"></p-tag>
+  </div>
+
+  <div class="audit-details">
+    <div class="detail-item">
+      <i
+        [class]="getCheckIcon(!auditData.isDisformative())"
+        pStyleClass="@next"
+        toggleIcon="pi-info-circle"
+      ></i>
+      <span class="detail-value">
+        {{
+          !auditData.isDisformative()
+            ? 'Post napisany zgodnie z faktami.'
+            : 'Post może zawierać nieścisłe informacje.'
+        }}
+      </span>
+    </div>
+  </div>
+</div>

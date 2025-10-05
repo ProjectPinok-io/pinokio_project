@@ -1,0 +1,30 @@
+{
+  "misinformation_probability": 35,
+  "red_flags": [
+    {
+      "category": "Weryfikacja źródeł",
+      "indicator": "Brak cytowania źródeł dla twierdzeń technicznych",
+      "severity": "medium",
+      "details": "Post formułuje twierdzenia techniczne dotyczące degradacji baterii bez podania jakichkolwiek badań, studiów lub źródeł eksperckich"
+    },
+    {
+      "category": "Analiza treści postu",
+      "indicator": "Twierdzenia sprzeczne z konsensusem eksperckim",
+      "severity": "high",
+      "details": "Wiele wiarygodnych źródeł (Stanford Battery Lab, Battery University) wskazuje, że twierdzenie jest przesadzone w stosunku do rzeczywistego zachowania baterii z nowoczesnymi systemami BMS"
+    },
+    {
+      "category": "Jakość językowa",
+      "indicator": "Sensacjonalistyczne sformułowania",
+      "severity": "low",
+      "details": "Użycie absolutnego języka ('niszczy żywotność baterii') bez uwzględnienia niuansów czy nowoczesnej technologii BMS"
+    }
+  ],
+  "analysis": "Post wykazuje kilka niepokojących wzorców. Mimo że porusza realny temat (troska o baterię), brakuje w nim jakichkolwiek cytowanych źródeł dla twierdzeń technicznych. Badania z wiarygodnych instytucji sugerują, że twierdzenie znacząco przesadza wpływ ładowania przez noc na nowoczesne smartfony, które posiadają systemy zarządzania baterią zaprojektowane by zapobiegać uszkodzeniom z przeładowania. Absolutny język i brak przypisania źródeł to wskaźniki, które uzasadniają ostrożność.",
+  "evidence_sources": [
+    "[TechCentral, 2024] - Artykuł wyjaśnia, że nowoczesne systemy zarządzania baterią (BMS) zatrzymują ładowanie gdy bateria osiągnie 100%",
+    "[Stanford University Battery Research Lab, 2023] - Paper badawczy o degradacji baterii Li-ion pokazuje, że głównymi czynnikami skracającymi żywotność są liczba cykli i ekspozycja na ciepło, nie utrzymywane ładowanie przy pełnym naładowaniu",
+    "[Battery University (batteryuniversity.com)] - Dokumentacja techniczna potwierdza, że ładowanie podtrzymujące po osiągnięciu 100% ma minimalny wpływ na nowoczesne baterie litowo-jonowe",
+    "[Snopes.com] - Wiele stron fact-checkingowych zdementowało to konkretne twierdzenie, oceniając je jako 'w większości fałszywe'"
+  ]
+}

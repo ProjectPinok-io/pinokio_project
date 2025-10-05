@@ -1,0 +1,21 @@
+<p-button (click)="op.toggle($event)" icon="pi pi-exclamation-circle" label="Oceń wiarygodność" />
+<p-popover #op>
+  <form [formGroup]="trustForm" (ngSubmit)="onSubmit()" class="trustform">
+    <div>
+      <input
+        pInputText
+        type="text"
+        id="description"
+        placeholder="napisz opinię..."
+        formControlName="description"
+        [invalid]="isInvalid('description')"
+      />
+      @if (isInvalid('description')) {
+        <p-message severity="error" size="small" variant="simple">Napisz opinie</p-message>
+      }
+    </div>
+    <button pButton severity="secondary" type="submit">
+      <span pButtonLabel>Wyślij</span>
+    </button>
+  </form>
+</p-popover>

@@ -1,0 +1,61 @@
+<div class="landing-container">
+      <app-post-filter (filterChange)="onFilterChange($event)" />
+      <div class="feed">
+        @for (post of displayedPosts(); track post.id) {
+          <article>
+            <p-card class="post" [style]="{ width: '100%', background: '#fff' }">
+              <p-avatar
+                [image]="post.author.avatar"
+                shape="circle"
+                size="large"
+              ></p-avatar>
+
+              <div class="post-content">
+                <div class="post-header">
+                  <div class="author-info">
+                    <span class="author-name">{{ post.author.name }}</span>
+                    @if (post.author.verified) {
+                      <i class="pi pi-verified verified-badge"></i>
+                    }
+                    <span class="author-username">@{{ post.author.username }}</span>
+                    <span class="post-time">· {{ formatTimestamp(post.timestamp) }}</span>
+                  </div>
+                </div>
+
+                <div class="post-text">{{ post.content }}</div>
+
+                @if (post.image) {
+                  <div class="post-image">
+                    <img [src]="post.image" [alt]="'Post by ' + post.author.name" />
+                  </div>
+                }
+
+                <div class="post-actions">
+                  <button class="action-btn reply-btn" (click)="onReply(post)">
+                    <i class="pi pi-comment"></i>
+                    <span>{{ formatNumber(post.replies) }}</span>
+                  </button>
+
+                  <button class="action-btn retweet-btn" (click)="onRetweet(post)">
+                    <i class="pi pi-refresh"></i>
+                    <span>{{ formatNumber(post.retweets) }}</span>
+                  </button>
+
+                  <button class="action-btn like-btn" (click)="onLike(post)">
+                    <i class="pi pi-heart"></i>
+                    <span>{{ formatNumber(post.likes) }}</span>
+                  </button>
+
+                  <button class="action-btn share-btn">
+                    <i class="pi pi-share-alt"></i>
+                  </button>
+
+                  <app-opinion-popover></app-opinion-popover>
+                </div>
+                <app-post-audit></app-post-audit>
+              </div>
+            </p-card>
+          </article>
+        }
+      </div>
+    </div>

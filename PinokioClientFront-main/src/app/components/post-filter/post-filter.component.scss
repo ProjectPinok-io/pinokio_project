@@ -1,0 +1,36 @@
+.sort-section {
+  margin-bottom: 1rem;
+}
+
+.sort-dropdown {
+  width: 100%;
+}
+
+.post-filter {
+  margin: 1rem;
+}
+.filter-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.chip-active {
+  background-color: #10b981;
+  color: white;
+  border: 1px solid #010e17;
+}
+
+.chip-inactive {
+  background-color: #f4f4f4;
+  color: #333;
+  border: 1px solid #ccc;
+}
